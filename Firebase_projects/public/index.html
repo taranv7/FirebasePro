@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Project</title>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <script src="app.js" defer></script>
+
+
+</head>
+<body>
+    <h1>Firebase CRUD Operations</h1>
+
+
+    <h2>Add Data:</h2>
+    <input type="text" id="nameInput" placeholder="Enter name">
+    <input type="text" id="ageInput" placeholder="Enter age">
+    <button onclick="addData()">Add Data</button>
+
+    <h2>View Data:</h2>
+    <ul id="dataList"></ul>
+
+    <h2>Update Data:</h2>
+    <input type="text" id="updateIdInput" placeholder="Enter ID to update">
+    <input type="text" id="updateNameInput" placeholder="Enter updated name">
+    <input type="text" id="updateAgeInput" placeholder="Enter updated age">
+    <button onclick="updateData()">Update Data</button>
+
+    <h2>Delete Data:</h2>
+    <input type="text" id="deleteIdInput" placeholder="Enter ID to delete">
+    <button onclick="deleteData()">Delete Data</button>
+
+    
+    <h1>Authentication</h1>
+    <label for="emailInput">Email:</label>
+    <input type="email" id="emailInput" placeholder="Enter email">
+    <label for="passwordInput">Password:</label>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button onclick="signUp()">Sign Up</button>
+    <button onclick="signIn()">Sign In</button>
+    <button onclick="signOut()">Sign Out</button>
+
+    <h1>Realtime Updates</h1>
+    <input type="text" id="realtimeDataInput" placeholder="Enter data">
+    <button onclick="addRealtimeData()">Add Data</button>
+    <button onclick="viewRealtimeData()">View Data</button>
+    <ul id="realtimeDataList"></ul>
+
+    <h1>Upload File:</h1>
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Upload File</button>
+
+    <h1>Download Files:</h1>
+    <ul id="fileList"></ul>
+    <button onclick="retrieveFiles()">Retrieve Files</button>
+
+
+
+
+</body>
+
+</html>
