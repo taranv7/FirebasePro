@@ -158,7 +158,7 @@ function signIn() {
     });
 }
 
-// Function to sign out users
+//sign out users
 function signOut() {
     auth.signOut()
     .then(() => {
@@ -186,7 +186,7 @@ function checkAuthState() {
 function addRealtimeData() {
     const data = document.getElementById("realtimeDataInput").value;
 
-    // Push data to a new node in the Realtime Database
+    //push data to a new node
     realtimeDB.ref('realtimeData').push({
         value: data
     });
@@ -197,7 +197,7 @@ function viewRealtimeData() {
     const dataList = document.getElementById("realtimeDataList");
     dataList.innerHTML = "";
 
-    // Retrieve data from the Realtime Database
+    //retrieve data 
     realtimeDB.ref('realtimeData').once('value', (snapshot) => {
         snapshot.forEach((childSnapshot) => {
             const data = childSnapshot.val();
@@ -207,13 +207,13 @@ function viewRealtimeData() {
     });
 }
 
-// Function to upload a file to Firebase Storage
+//to upload a file
 function uploadFile() {
     const fileInput = document.getElementById('fileInput').files[0];
     const fileName = fileInput.name;
     const storageRef = storage.ref('files/' + fileName);
 
-    // Upload file
+    //upload file
     storageRef.put(fileInput).then((snapshot) => {
         console.log('File uploaded successfully');
         alert('File uploaded successfully');
@@ -223,17 +223,16 @@ function uploadFile() {
     });
 }
 
-// Function to retrieve files from Firebase Storage
+//to retrieve files
 function retrieveFiles() {
     const fileList = document.getElementById('fileList');
     fileList.innerHTML = '';
 
     const storageRef = storage.ref('files');
 
-    // Get the list of items in the folder
+    //get the list of items
     storageRef.listAll().then((res) => {
         res.items.forEach((itemRef) => {
-            // Get download URL for each file
             itemRef.getDownloadURL().then((url) => {
                 fileList.innerHTML += `<li><a href="${url}" target="_blank">${itemRef.name}</a></li>`;
             }).catch((error) => {
